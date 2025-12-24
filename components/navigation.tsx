@@ -115,11 +115,11 @@ export function Navigation() {
             <div
                 className={cn(
                     "relative flex items-center gap-1 px-2 py-2 rounded-full transition-all duration-500",
-                    "bg-white/[0.03] backdrop-blur-2xl",
-                    "border border-white/[0.08]",
-                    "shadow-[0_8px_32px_rgba(0,0,0,0.4),inset_0_1px_0_rgba(255,255,255,0.05)]",
+                    "bg-white/[0.06] backdrop-blur-2xl",
+                    "border border-white/[0.12]",
+                    "shadow-[0_8px_32px_rgba(0,0,0,0.4),inset_0_1px_0_rgba(255,255,255,0.08)]",
                     isScrolled &&
-                    "bg-black/40 shadow-[0_8px_40px_rgba(0,0,0,0.6),inset_0_1px_0_rgba(255,255,255,0.08)]"
+                    "bg-white/[0.08] shadow-[0_8px_40px_rgba(0,0,0,0.6),inset_0_1px_0_rgba(255,255,255,0.1)]"
                 )}
             >
                 {/* Subtle top highlight for 3D effect */}
