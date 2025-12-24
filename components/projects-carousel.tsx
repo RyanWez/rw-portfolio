@@ -232,8 +232,39 @@ export function ProjectsCarousel() {
     };
 
     return (
-        <section id="work" className="py-24 overflow-hidden">
-            <div className="max-w-6xl mx-auto px-6 md:px-12 lg:px-24 mb-8">
+        <section id="work" className="py-24 overflow-hidden relative">
+            {/* Gradient Mesh Blobs - Work Section */}
+            <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
+                {/* Purple blob - right side */}
+                <motion.div
+                    className="absolute top-0 -right-20 w-[600px] h-[600px] rounded-full bg-purple-500/30 blur-[80px]"
+                    animate={{
+                        scale: [1, 1.1, 1],
+                        opacity: [0.3, 0.4, 0.3],
+                    }}
+                    transition={{
+                        duration: 10,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                    }}
+                />
+                {/* Cyan blob - left side */}
+                <motion.div
+                    className="absolute bottom-0 -left-20 w-[500px] h-[500px] rounded-full bg-cyan-500/25 blur-[70px]"
+                    animate={{
+                        scale: [1, 1.08, 1],
+                        opacity: [0.25, 0.35, 0.25],
+                    }}
+                    transition={{
+                        duration: 12,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                        delay: 2,
+                    }}
+                />
+            </div>
+
+            <div className="max-w-6xl mx-auto px-6 md:px-12 lg:px-24 mb-8 relative z-10">
                 {/* Section Header */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -311,8 +342,8 @@ export function ProjectsCarousel() {
                         key={index}
                         onClick={() => goTo(index)}
                         className={`w-2 h-2 rounded-full transition-all duration-300 ${index === currentIndex
-                                ? "w-8 bg-cyan-500"
-                                : "bg-white/20 hover:bg-white/40"
+                            ? "w-8 bg-cyan-500"
+                            : "bg-white/20 hover:bg-white/40"
                             }`}
                     />
                 ))}
