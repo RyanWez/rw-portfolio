@@ -52,62 +52,64 @@ export function Hero() {
                 />
             </div>
 
-            <div className="max-w-5xl mx-auto w-full relative z-10">
+            <div className="max-w-4xl mx-auto w-full relative z-10 text-center">
                 {/* Availability Badge */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.1 }}
+                    className="flex justify-center"
                 >
                     <Badge variant="success" className="mb-8">
                         <Circle className="w-2 h-2 fill-emerald-400 text-emerald-400 animate-pulse" />
-                        Available for new projects
+                        Available for Projects
                     </Badge>
                 </motion.div>
 
-                {/* Main Title */}
+                {/* Main Title - Centered with gradient */}
                 <motion.h1
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.2 }}
-                    className="text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight mb-6"
+                    className="text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.05] tracking-tight mb-6"
                 >
-                    I architect{" "}
-                    <span className="text-gradient-cyan">intelligent software</span>{" "}
-                    <br className="hidden md:block" />
-                    solutions using AI-driven workflows.
+                    <span className="bg-gradient-to-r from-emerald-400 via-cyan-400 to-purple-400 bg-clip-text text-transparent">
+                        AI Product
+                    </span>
+                    <br />
+                    <span className="text-white">Architect</span>
                 </motion.h1>
 
-                {/* Subtitle */}
+                {/* Subtitle - Centered */}
                 <motion.p
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.3 }}
-                    className="text-lg md:text-xl text-white/50 max-w-2xl mb-10 leading-relaxed"
+                    className="text-lg md:text-xl text-white/60 max-w-2xl mx-auto mb-10 leading-relaxed"
                 >
-                    AI Product Architect crafting enterprise systems, automation tools, and
-                    intelligent applications that solve real business problems.
+                    I architect intelligent software solutions using AI-driven workflows,
+                    <br className="hidden md:block" />
+                    transforming complex problems into scalable products.
                 </motion.p>
 
-                {/* CTA */}
+                {/* CTA - Centered */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.4 }}
-                    className="flex flex-wrap gap-4"
+                    className="flex flex-wrap justify-center gap-4"
                 >
                     <a
                         href="#work"
-                        className="group px-8 py-4 rounded-full bg-white text-black font-semibold hover:bg-cyan-400 hover:text-black transition-all duration-300 flex items-center gap-2"
+                        className="group px-8 py-3.5 rounded-full bg-cyan-500 text-black font-semibold hover:bg-cyan-400 hover:shadow-[0_0_30px_rgba(0,245,255,0.4)] transition-all duration-300"
                     >
                         View My Work
-                        <ArrowDown className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
                     </a>
                     <a
                         href="#contact"
-                        className="px-8 py-4 rounded-full glass border border-white/10 text-white font-semibold hover:border-white/20 hover:bg-white/5 transition-all duration-300"
+                        className="px-8 py-3.5 rounded-full border border-white/20 text-white font-semibold hover:border-white/40 hover:bg-white/5 transition-all duration-300"
                     >
-                        Get In Touch
+                        Get in Touch
                     </a>
                 </motion.div>
             </div>
