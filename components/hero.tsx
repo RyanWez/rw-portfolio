@@ -6,9 +6,51 @@ import { Circle, ArrowDown } from "lucide-react";
 
 export function Hero() {
     return (
-        <section id="home" className="min-h-screen flex flex-col justify-center px-6 md:px-12 lg:px-24 pt-24 pb-12 relative">
-            {/* Subtle gradient background */}
-            <div className="absolute inset-0 bg-gradient-to-b from-cyan-500/5 via-transparent to-transparent pointer-events-none" />
+        <section id="home" className="min-h-screen flex flex-col justify-center px-6 md:px-12 lg:px-24 pt-24 pb-12 relative overflow-hidden">
+            {/* Gradient Mesh Blobs - 2025 Style */}
+            <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
+                {/* Cyan blob - top right */}
+                <motion.div
+                    className="absolute -top-20 -right-20 w-[700px] h-[700px] rounded-full bg-cyan-500/30 blur-[100px]"
+                    animate={{
+                        scale: [1, 1.1, 1],
+                        opacity: [0.3, 0.4, 0.3],
+                    }}
+                    transition={{
+                        duration: 8,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                    }}
+                />
+                {/* Purple blob - bottom left */}
+                <motion.div
+                    className="absolute -bottom-20 -left-20 w-[600px] h-[600px] rounded-full bg-purple-500/25 blur-[80px]"
+                    animate={{
+                        scale: [1, 1.1, 1],
+                        opacity: [0.25, 0.35, 0.25],
+                    }}
+                    transition={{
+                        duration: 10,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                        delay: 1,
+                    }}
+                />
+                {/* Cyan accent blob - center left */}
+                <motion.div
+                    className="absolute top-1/3 -left-10 w-[400px] h-[400px] rounded-full bg-cyan-400/20 blur-[60px]"
+                    animate={{
+                        y: [0, 30, 0],
+                        opacity: [0.2, 0.3, 0.2],
+                    }}
+                    transition={{
+                        duration: 12,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                        delay: 2,
+                    }}
+                />
+            </div>
 
             <div className="max-w-5xl mx-auto w-full relative z-10">
                 {/* Availability Badge */}

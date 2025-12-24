@@ -5,10 +5,12 @@ import { ProjectsCarousel } from "@/components/projects-carousel";
 import { Philosophy } from "@/components/philosophy";
 import { Contact } from "@/components/contact";
 import { Footer } from "@/components/footer";
+import { LoadingScreen } from "@/components/loading-screen";
 
 export default function Home() {
   return (
     <>
+      <LoadingScreen />
       <Navigation />
       <main>
         <Hero />

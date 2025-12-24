@@ -49,11 +49,30 @@ body {
 }
 
 .glow-cyan-hover:hover {
-  box-shadow: var(--glow-cyan);
+  box-shadow: 0 0 60px rgba(0, 245, 255, 0.4), 0 0 120px rgba(0, 245, 255, 0.2);
 }
 
 .glow-purple-hover:hover {
-  box-shadow: var(--glow-purple);
+  box-shadow: 0 0 60px rgba(168, 85, 247, 0.4), 0 0 120px rgba(168, 85, 247, 0.2);
+}
+
+/* Ambient glow for cards */
+.ambient-glow {
+  position: relative;
+}
+
+.ambient-glow::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(0, 245, 255, 0.1), transparent, rgba(168, 85, 247, 0.1));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
 }
 
 /* Text gradient utilities */
