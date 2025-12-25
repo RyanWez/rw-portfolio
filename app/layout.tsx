@@ -17,6 +17,11 @@ export const metadata: Metadata = {
   description: "I architect intelligent software solutions using AI-driven workflows. Building enterprise systems, automation tools, and intelligent applications.",
   keywords: ["AI", "Product Architect", "Software", "Next.js", "Enterprise", "Automation"],
   authors: [{ name: "AI Product Architect" }],
+  icons: {
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
+  },
   openGraph: {
     title: "AI Product Architect | Portfolio",
     description: "I architect intelligent software solutions using AI-driven workflows.",
