@@ -103,10 +103,7 @@ export function Navigation() {
     );
 
     return (
-        <motion.nav
-            initial={{ opacity: 0, y: -30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+        <nav
             className={cn(
                 "fixed top-6 left-1/2 -translate-x-1/2 z-40 transition-all duration-500",
                 isScrolled && "top-4"
@@ -128,6 +125,6 @@ export function Navigation() {
 
                 {renderedNavItems}
             </div>
-        </motion.nav>
+        </nav>
     );
 }
