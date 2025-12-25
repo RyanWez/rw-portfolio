@@ -105,6 +105,8 @@ function ProjectCard({
                     src={project.image}
                     alt={project.title}
                     fill
+                    loading="lazy"
+                    quality={80}
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                     sizes={variant === "desktop" ? "(max-width: 768px) 100vw, 75vw" : "(max-width: 768px) 100vw, 25vw"}
                 />

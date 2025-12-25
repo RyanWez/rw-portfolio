@@ -62,7 +62,7 @@ function BlurText({ text, delay = 0 }: { text: string; delay?: number }) {
 
 export function Hero() {
     return (
-        <section id="home" className="min-h-screen flex flex-col justify-center px-4 sm:px-6 md:px-12 lg:px-24 pt-24 pb-12 relative overflow-hidden">
+        <section id="home" className="min-h-screen flex flex-col justify-center px-4 sm:px-6 md:px-12 lg:px-24 pt-16 sm:pt-20 md:pt-24 pb-20 sm:pb-12 relative overflow-hidden">
             {/* Gradient Mesh Blobs - 2025 Style */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
                 {/* Cyan blob - top right */}
@@ -116,7 +116,7 @@ export function Hero() {
                     transition={{ duration: 0.5, delay: 0.1 }}
                     className="flex justify-center"
                 >
-                    <Badge variant="success" className="mb-8">
+                    <Badge variant="success" className="mb-4 sm:mb-6 md:mb-8">
                         <Circle className="w-2 h-2 fill-emerald-400 text-emerald-400 animate-pulse" />
                         Available for Projects
                     </Badge>
@@ -171,7 +171,7 @@ export function Hero() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1, duration: 1 }}
-                className="absolute bottom-8 left-1/2 -translate-x-1/2"
+                className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2"
             >
                 <motion.div
                     animate={{ y: [0, 8, 0] }}

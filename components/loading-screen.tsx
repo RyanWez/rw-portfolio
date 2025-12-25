@@ -10,7 +10,7 @@ export function LoadingScreen() {
         // Wait for page to be fully loaded
         const timer = setTimeout(() => {
             setIsLoading(false);
-        }, 1500); // Minimum 1.5s loading time for smooth UX
+        }, 800); // Reduced to 800ms for faster perceived performance
 
         return () => clearTimeout(timer);
     }, []);
