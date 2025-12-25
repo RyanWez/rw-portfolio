@@ -1,12 +1,9 @@
 import dynamic from "next/dynamic";
 import { Navigation } from "@/components/navigation";
 import { Hero } from "@/components/hero";
+import { StackMarquee } from "@/components/stack-marquee";
 
 // Lazy load below-the-fold components for better initial performance
-const StackMarquee = dynamic(() => import("@/components/stack-marquee").then(mod => ({ default: mod.StackMarquee })), {
-  ssr: true,
-});
-
 const About = dynamic(() => import("@/components/about").then(mod => ({ default: mod.About })), {
   ssr: true,
 });

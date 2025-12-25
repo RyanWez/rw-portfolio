@@ -140,7 +140,7 @@ export function Hero() {
                 <div className="text-base sm:text-lg md:text-xl text-white/60 max-w-2xl mx-auto mb-10 leading-relaxed px-2">
                     <BlurText
                         text="I architect intelligent software solutions using AI-driven workflows, transforming complex problems into scalable products."
-                        delay={1.2}
+                        delay={0.2}
                     />
                 </div>
 
