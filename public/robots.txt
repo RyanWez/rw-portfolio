@@ -1,0 +1,11 @@
+# Portfolio Robots.txt
+# Allow all search engines to crawl
+
+User-agent: *
+Allow: /
+
+# Sitemap location (update with your actual domain)
+Sitemap: https://ryanwez.vercel.app/sitemap.xml
+
+# Disallow admin or private paths (add if needed)
+Disallow: /api/
