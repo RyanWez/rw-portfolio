@@ -127,15 +127,17 @@ export function Navigation() {
             <div
                 className={cn(
                     "relative flex items-center gap-1 px-2 py-2 rounded-full transition-all duration-500",
-                    "bg-white/[0.06] backdrop-blur-2xl",
-                    "border border-white/[0.12]",
-                    "shadow-[0_8px_32px_rgba(0,0,0,0.4),inset_0_1px_0_rgba(255,255,255,0.08)]",
+                    "bg-black/40 backdrop-blur-3xl backdrop-saturate-150",
+                    "border border-white/[0.15]",
+                    "shadow-[0_8px_32px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.1),inset_0_-1px_0_rgba(0,0,0,0.2)]",
                     isScrolled &&
-                    "bg-white/[0.08] shadow-[0_8px_40px_rgba(0,0,0,0.6),inset_0_1px_0_rgba(255,255,255,0.1)]"
+                    "bg-black/50 backdrop-blur-3xl shadow-[0_8px_40px_rgba(0,0,0,0.7),inset_0_1px_0_rgba(255,255,255,0.12)]"
                 )}
             >
                 {/* Subtle top highlight for 3D effect */}
-                <div className="absolute inset-x-4 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+                <div className="absolute inset-x-4 top-0 h-px bg-gradient-to-r from-transparent via-white/25 to-transparent" />
+                {/* Bottom shadow for depth */}
+                <div className="absolute inset-x-4 bottom-0 h-px bg-gradient-to-r from-transparent via-black/20 to-transparent" />
 
                 {renderedNavItems}
             </div>
