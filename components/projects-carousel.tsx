@@ -57,10 +57,10 @@ const projects = {
     sayarKaung: {
         id: "sayar-kaung",
         title: "Sayar Kaung",
-        subtitle: "Educational Platform",
-        description: "Online learning platform with course management, video lessons, and student progress tracking.",
+        subtitle: "Online Gaming Agent",
+        description: "Online betting agent platform featuring slots, fishing games, football betting, 2D/3D lottery games.",
         badges: [
-            { label: "EdTech", variant: "cyan" as const },
+            { label: "Gaming", variant: "purple" as const },
             { label: "Next.js", variant: "default" as const },
         ],
         image: "/images/projects/sayar-kaung.png",
