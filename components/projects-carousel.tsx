@@ -1,241 +1,172 @@
 "use client";
 
-import { motion, useMotionValue, useTransform, animate } from "framer-motion";
-import { useState, useRef, useEffect } from "react";
-import { Badge } from "@/components/ui/badge";
-import {
-    Users, TrendingUp, Calendar, BarChart3,
-    Package, ArrowRightLeft, GraduationCap,
-    ChevronLeft, ChevronRight
-} from "lucide-react";
+import { motion } from "framer-motion";
+import { ExternalLink } from "lucide-react";
+import { cn } from "@/lib/utils";
+import Image from "next/image";
+import Link from "next/link";
 
 interface Project {
     id: string;
     title: string;
     subtitle: string;
     description: string;
-    badges: { label: string; variant: "cyan" | "purple" | "success" | "default" }[];
-    tags: string[];
-    icon: React.ReactNode;
-    accentColor: string;
-    featured?: boolean;
+    badges: { label: string; variant: "cyan" | "purple" | "default" }[];
+    image: string;
+    link: string;
 }
 
-const projects: Project[] = [
-    {
+const projects = {
+    ems: {
         id: "ems",
         title: "EMS",
         subtitle: "Enterprise Management System",
-        description: "Full-scale enterprise solution currently managing 100+ employees with real-time analytics, HR management, and business intelligence dashboards.",
+        description: "Full-scale enterprise solution managing 100+ employees with real-time analytics, HR management, and BI dashboards.",
         badges: [
-            { label: "Flagship Product", variant: "cyan" },
-            { label: "Production", variant: "success" }
+            { label: "Flagship", variant: "cyan" as const },
+            { label: "Production", variant: "cyan" as const },
+            { label: "Next.js", variant: "default" as const },
         ],
-        tags: ["Next.js", "Real-time DB", "Enterprise"],
-        icon: <BarChart3 className="w-6 h-6" />,
-        accentColor: "cyan",
-        featured: true
+        image: "/images/projects/ems.png",
+        link: "https://www.ems-mm.site/login",
     },
-    {
+    stockMhat: {
         id: "stock-mhat",
         title: "Stock Mhat",
         subtitle: "Inventory Solution",
-        description: "Automated inventory tracking system with real-time stock alerts, supplier management, and predictive restocking capabilities.",
+        description: "Automated inventory tracking with real-time stock alerts and supplier management.",
         badges: [
-            { label: "Automation", variant: "purple" },
-            { label: "Business Logic", variant: "default" }
+            { label: "Flutter", variant: "purple" as const },
+            { label: "Automation", variant: "default" as const },
         ],
-        tags: ["Inventory", "Tracking", "Alerts"],
-        icon: <Package className="w-6 h-6" />,
-        accentColor: "purple"
+        image: "/images/projects/stock-mhat.png",
+        link: "https://t.me/RyanWez",
     },
-    {
+    ahkyawayMhat: {
         id: "ahkyaway-mhat",
         title: "Ahkyaway Mhat",
         subtitle: "POS Solution",
-        description: "Point-of-sale system with integrated payment processing, sales reporting, customer management, and multi-branch support.",
+        description: "Point-of-sale system with payment processing and customer management.",
         badges: [
-            { label: "Payments", variant: "cyan" },
-            { label: "Retail", variant: "default" }
+            { label: "Flutter", variant: "cyan" as const },
+            { label: "Payments", variant: "default" as const },
         ],
-        tags: ["POS", "Payments", "Retail"],
-        icon: <ArrowRightLeft className="w-6 h-6" />,
-        accentColor: "cyan"
+        image: "/images/projects/ahkyaway-mhat.png",
+        link: "https://github.com/RyanWez/ahkyaway_mhat-releases/releases",
     },
-    {
+    sayarKaung: {
         id: "sayar-kaung",
         title: "Sayar Kaung",
         subtitle: "Educational Platform",
-        description: "Comprehensive e-learning platform with course management, student progress tracking, video hosting, and interactive assessments.",
+        description: "Online learning platform with course management, video lessons, and student progress tracking.",
         badges: [
-            { label: "EdTech", variant: "default" }
+            { label: "EdTech", variant: "cyan" as const },
+            { label: "Next.js", variant: "default" as const },
         ],
-        tags: ["Courses", "Students", "Videos"],
-        icon: <GraduationCap className="w-6 h-6" />,
-        accentColor: "amber"
+        image: "/images/projects/sayar-kaung.png",
+        link: "https://sayarkaung.vercel.app/",
     }
-];
+};
 
-function EMSMockup() {
+function ProjectCard({
+    project,
+    variant,
+    delay = 0
+}: {
+    project: Project;
+    variant: "desktop" | "mobile";
+    delay?: number;
+}) {
+    const glowColor = project.badges[0]?.variant === "purple" ? "purple" : "cyan";
+
     return (
-        <div className="mt-4 rounded-xl bg-[#0a0a0a] border border-white/5 overflow-hidden">
-            <div className="flex h-48">
-                {/* Sidebar */}
-                <div className="w-14 bg-[#050505] border-r border-white/5 p-2 flex flex-col gap-2">
-                    <div className="w-full aspect-square rounded-lg bg-cyan-500/20 flex items-center justify-center">
-                        <div className="w-3 h-3 rounded bg-cyan-500" />
-                    </div>
-                    <div className="w-full aspect-square rounded-lg bg-white/5" />
-                    <div className="w-full aspect-square rounded-lg bg-white/5" />
-                </div>
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5, delay, ease: [0.25, 0.46, 0.45, 0.94] }}
+            className="h-full"
+        >
+            <Link
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={cn(
+                    "group relative block rounded-2xl overflow-hidden h-full",
+                    "border border-white/[0.08] hover:border-white/20",
+                    "transition-all duration-500",
+                    variant === "desktop" ? "aspect-[16/9]" : "aspect-[9/16]",
+                    glowColor === "cyan" && "hover:shadow-[0_0_60px_rgba(0,245,255,0.15)]",
+                    glowColor === "purple" && "hover:shadow-[0_0_60px_rgba(168,85,247,0.15)]"
+                )}
+            >
+                {/* Background Image */}
+                <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    sizes={variant === "desktop" ? "(max-width: 768px) 100vw, 75vw" : "(max-width: 768px) 100vw, 25vw"}
+                />
 
-                {/* Main Content */}
-                <div className="flex-1 p-4">
-                    {/* Stats Row */}
-                    <div className="grid grid-cols-4 gap-2 mb-4">
-                        <div className="p-2 rounded-lg bg-white/5 border border-white/5">
-                            <Users className="w-3 h-3 text-cyan-400 mb-1" />
-                            <div className="text-[10px] text-white/40">Employees</div>
-                            <div className="text-xs font-bold text-white">100+</div>
-                        </div>
-                        <div className="p-2 rounded-lg bg-white/5 border border-white/5">
-                            <TrendingUp className="w-3 h-3 text-emerald-400 mb-1" />
-                            <div className="text-[10px] text-white/40">Growth</div>
-                            <div className="text-xs font-bold text-white">24%</div>
-                        </div>
-                        <div className="p-2 rounded-lg bg-white/5 border border-white/5">
-                            <Calendar className="w-3 h-3 text-purple-400 mb-1" />
-                            <div className="text-[10px] text-white/40">Projects</div>
-                            <div className="text-xs font-bold text-white">48</div>
-                        </div>
-                        <div className="p-2 rounded-lg bg-white/5 border border-white/5">
-                            <BarChart3 className="w-3 h-3 text-amber-400 mb-1" />
-                            <div className="text-[10px] text-white/40">Revenue</div>
-                            <div className="text-xs font-bold text-white">↑18%</div>
-                        </div>
+                {/* Overlay - Fades out on hover */}
+                <div
+                    className={cn(
+                        "absolute inset-0 transition-opacity duration-500",
+                        "bg-gradient-to-t from-black/90 via-black/50 to-black/20",
+                        "group-hover:opacity-0"
+                    )}
+                />
+
+                {/* Content - Fades out on hover */}
+                <div className="absolute inset-0 p-5 md:p-6 flex flex-col justify-end transition-opacity duration-500 group-hover:opacity-0">
+                    <div className="mb-2">
+                        <h3 className="text-xl md:text-2xl font-bold text-white mb-1">
+                            {project.title}
+                        </h3>
+                        <p className="text-white/60 text-sm">{project.subtitle}</p>
                     </div>
 
-                    {/* Chart */}
-                    <div className="h-16 rounded-lg bg-white/5 border border-white/5 p-2 flex items-end gap-1">
-                        {[40, 65, 45, 80, 55, 70, 90, 60, 75, 85, 50, 95].map((h, i) => (
-                            <div
-                                key={i}
-                                className="flex-1 rounded-t bg-gradient-to-t from-cyan-500/50 to-cyan-500/20"
-                                style={{ height: `${h}%` }}
-                            />
+                    <p className={cn(
+                        "text-white/70 text-sm leading-relaxed mb-3",
+                        variant === "mobile" ? "line-clamp-2" : "line-clamp-2"
+                    )}>
+                        {project.description}
+                    </p>
+
+                    <div className="flex flex-wrap gap-2">
+                        {project.badges.map((badge, index) => (
+                            <span
+                                key={index}
+                                className={cn(
+                                    "text-xs px-2.5 py-1 rounded-full font-medium",
+                                    badge.variant === "cyan" && "bg-cyan-500/20 text-cyan-400 border border-cyan-500/30",
+                                    badge.variant === "purple" && "bg-purple-500/20 text-purple-400 border border-purple-500/30",
+                                    badge.variant === "default" && "bg-white/10 text-white/70 border border-white/10"
+                                )}
+                            >
+                                {badge.label}
+                            </span>
                         ))}
                     </div>
                 </div>
-            </div>
-        </div>
-    );
-}
 
-function ProjectCard({ project, index }: { project: Project; index: number }) {
-    const colorMap: Record<string, string> = {
-        cyan: "from-cyan-500/20 border-cyan-500/20 text-cyan-400",
-        purple: "from-purple-500/20 border-purple-500/20 text-purple-400",
-        amber: "from-amber-500/20 border-amber-500/20 text-amber-400"
-    };
-
-    const iconBgMap: Record<string, string> = {
-        cyan: "bg-cyan-500/10 border-cyan-500/20",
-        purple: "bg-purple-500/10 border-purple-500/20",
-        amber: "bg-amber-500/10 border-amber-500/20"
-    };
-
-    return (
-        <div className="h-full p-8 rounded-3xl glass border border-white/5 flex flex-col">
-            {/* Header */}
-            <div className="flex items-start justify-between mb-4">
-                <div className="flex items-center gap-4">
-                    <div className={`p-3 rounded-xl border ${iconBgMap[project.accentColor]}`}>
-                        <span className={colorMap[project.accentColor].split(" ").pop()}>
-                            {project.icon}
-                        </span>
-                    </div>
-                    <div>
-                        <h3 className="text-2xl font-bold">{project.title}</h3>
-                        <p className="text-white/50">{project.subtitle}</p>
+                {/* External Link Icon - Shows on hover */}
+                <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    <div className="p-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20">
+                        <ExternalLink className="w-4 h-4 text-white" />
                     </div>
                 </div>
-                <div className="flex gap-2">
-                    {project.badges.map((badge, i) => (
-                        <Badge key={i} variant={badge.variant}>{badge.label}</Badge>
-                    ))}
-                </div>
-            </div>
-
-            {/* Description */}
-            <p className="text-white/60 leading-relaxed mb-4">
-                {project.description}
-            </p>
-
-            {/* Featured Mockup for EMS */}
-            {project.featured && <EMSMockup />}
-
-            {/* Tags */}
-            <div className="flex flex-wrap gap-2 mt-auto pt-4">
-                {project.tags.map((tag, i) => (
-                    <span key={i} className="text-xs px-3 py-1.5 rounded-full bg-white/5 text-white/50">
-                        {tag}
-                    </span>
-                ))}
-            </div>
-        </div>
+            </Link>
+        </motion.div>
     );
 }
 
 export function ProjectsCarousel() {
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const containerRef = useRef<HTMLDivElement>(null);
-    const x = useMotionValue(0);
-
-    const cardWidth = 600; // Card width
-    const gap = 24; // Gap between cards
-    const peekWidth = 200; // How much of next card to show
-
-    const maxIndex = projects.length - 1;
-
-    const goTo = (index: number) => {
-        const clampedIndex = Math.max(0, Math.min(index, maxIndex));
-        setCurrentIndex(clampedIndex);
-        animate(x, -clampedIndex * (cardWidth + gap), {
-            type: "spring",
-            stiffness: 300,
-            damping: 30
-        });
-    };
-
-    const handleDragEnd = (event: MouseEvent | TouchEvent | PointerEvent, info: { offset: { x: number }; velocity: { x: number } }) => {
-        const threshold = cardWidth / 4;
-        const velocity = info.velocity.x;
-
-        if (Math.abs(velocity) > 500) {
-            // Fast swipe
-            if (velocity > 0) {
-                goTo(currentIndex - 1);
-            } else {
-                goTo(currentIndex + 1);
-            }
-        } else if (Math.abs(info.offset.x) > threshold) {
-            // Slow drag past threshold
-            if (info.offset.x > 0) {
-                goTo(currentIndex - 1);
-            } else {
-                goTo(currentIndex + 1);
-            }
-        } else {
-            // Snap back
-            goTo(currentIndex);
-        }
-    };
-
     return (
-        <section id="work" className="py-24 overflow-hidden relative">
-            {/* Gradient Mesh Blobs - Work Section */}
+        <section id="work" className="py-24 px-6 md:px-12 lg:px-24 relative">
+            {/* Gradient Mesh Blobs */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
-                {/* Purple blob - right side */}
                 <motion.div
                     className="absolute top-0 -right-20 w-[600px] h-[600px] rounded-full bg-purple-500/30 blur-[80px]"
                     animate={{
@@ -248,7 +179,6 @@ export function ProjectsCarousel() {
                         ease: "easeInOut",
                     }}
                 />
-                {/* Cyan blob - left side */}
                 <motion.div
                     className="absolute bottom-0 -left-20 w-[500px] h-[500px] rounded-full bg-cyan-500/25 blur-[70px]"
                     animate={{
@@ -264,89 +194,45 @@ export function ProjectsCarousel() {
                 />
             </div>
 
-            <div className="max-w-6xl mx-auto px-6 md:px-12 lg:px-24 mb-8 relative z-10">
+            <div className="max-w-6xl mx-auto relative z-10">
                 {/* Section Header */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
-                    className="flex items-end justify-between"
+                    className="mb-12"
                 >
-                    <div>
-                        <h2 className="text-3xl md:text-4xl font-bold mb-2">
-                            Featured <span className="text-gradient-cyan">Work</span>
-                        </h2>
-                        <p className="text-white/60">
-                            Products and systems I&apos;ve architected from concept to production.
-                        </p>
+                    <h2 className="text-3xl md:text-4xl font-bold mb-2">
+                        Featured <span className="text-gradient-cyan">Work</span>
+                    </h2>
+                    <p className="text-white/60">
+                        Products and systems I&apos;ve architected from concept to production.
+                    </p>
+                </motion.div>
+
+                {/* Bento Grid Layout */}
+                <div className="space-y-6">
+                    {/* Row 1: EMS (Desktop) + Ahkyaway Mhat (Mobile) - Both Production */}
+                    <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+                        <div className="md:col-span-3">
+                            <ProjectCard project={projects.ems} variant="desktop" delay={0.1} />
+                        </div>
+                        <div className="md:col-span-1">
+                            <ProjectCard project={projects.ahkyawayMhat} variant="mobile" delay={0.2} />
+                        </div>
                     </div>
 
-                    {/* Navigation Arrows */}
-                    <div className="flex gap-2">
-                        <button
-                            onClick={() => goTo(currentIndex - 1)}
-                            disabled={currentIndex === 0}
-                            className="p-3 rounded-full glass border border-white/10 disabled:opacity-30 disabled:cursor-not-allowed hover:bg-white/5 transition-colors"
-                        >
-                            <ChevronLeft className="w-5 h-5" />
-                        </button>
-                        <button
-                            onClick={() => goTo(currentIndex + 1)}
-                            disabled={currentIndex === maxIndex}
-                            className="p-3 rounded-full glass border border-white/10 disabled:opacity-30 disabled:cursor-not-allowed hover:bg-white/5 transition-colors"
-                        >
-                            <ChevronRight className="w-5 h-5" />
-                        </button>
+                    {/* Row 2: Stock Mhat (Mobile) + Sayar Kaung (Desktop) */}
+                    <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+                        <div className="md:col-span-1 order-2 md:order-1">
+                            <ProjectCard project={projects.stockMhat} variant="mobile" delay={0.3} />
+                        </div>
+                        <div className="md:col-span-3 order-1 md:order-2">
+                            <ProjectCard project={projects.sayarKaung} variant="desktop" delay={0.4} />
+                        </div>
                     </div>
-                </motion.div>
-            </div>
-
-            {/* Carousel */}
-            <div
-                ref={containerRef}
-                className="relative"
-                style={{ paddingLeft: `calc((100vw - ${cardWidth}px) / 2 - ${peekWidth / 2}px)` }}
-            >
-                <motion.div
-                    className="flex gap-6 cursor-grab active:cursor-grabbing"
-                    style={{ x }}
-                    drag="x"
-                    dragConstraints={{
-                        left: -maxIndex * (cardWidth + gap),
-                        right: 0
-                    }}
-                    dragElastic={0.1}
-                    onDragEnd={handleDragEnd}
-                >
-                    {projects.map((project, index) => (
-                        <motion.div
-                            key={project.id}
-                            className="flex-shrink-0"
-                            style={{ width: cardWidth }}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
-                        >
-                            <ProjectCard project={project} index={index} />
-                        </motion.div>
-                    ))}
-                </motion.div>
-            </div>
-
-            {/* Dots Indicator */}
-            <div className="flex justify-center gap-2 mt-8">
-                {projects.map((_, index) => (
-                    <button
-                        key={index}
-                        onClick={() => goTo(index)}
-                        className={`w-2 h-2 rounded-full transition-all duration-300 ${index === currentIndex
-                            ? "w-8 bg-cyan-500"
-                            : "bg-white/20 hover:bg-white/40"
-                            }`}
-                    />
-                ))}
+                </div>
             </div>
         </section>
     );

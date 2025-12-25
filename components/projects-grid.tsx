@@ -25,22 +25,25 @@ export function ProjectsGrid() {
                     </p>
                 </motion.div>
 
-                {/* Bento Grid - Balanced Layout */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    {/* Row 1: EMS Large + 2 Small Cards */}
-                    <div className="md:col-span-2 md:row-span-2">
+                {/* Projects Layout */}
+                <div className="space-y-6">
+                    {/* Row 1: EMS - Full width desktop project */}
+                    <div className="w-full">
                         <EMSCard />
                     </div>
-                    <div className="h-full">
-                        <StockMhatCard />
-                    </div>
-                    <div className="h-full">
-                        <AhkyawayMhatCard />
-                    </div>
 
-                    {/* Row 2: Sayar Kaung spans full width on bottom */}
-                    <div className="md:col-span-3">
-                        <SayarKaungCard />
+                    {/* Row 2: Mobile Apps - Side by side */}
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+                        <div className="col-span-1 md:col-span-1">
+                            <StockMhatCard />
+                        </div>
+                        <div className="col-span-1 md:col-span-1">
+                            <AhkyawayMhatCard />
+                        </div>
+                        {/* Sayar Kaung takes remaining 2 columns on desktop */}
+                        <div className="col-span-2 md:col-span-2">
+                            <SayarKaungCard />
+                        </div>
                     </div>
                 </div>
             </div>
