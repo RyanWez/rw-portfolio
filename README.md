@@ -1,36 +1,135 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<div align="center">
 
-## Getting Started
+# 🚀 RyanWez Portfolio
 
-First, run the development server:
+<p align="center">
+  <img src="public/images/rw.png" alt="RyanWez Logo" width="120" height="120" style="border-radius: 50%;">
+</p>
+
+<p align="center">
+  <strong>AI Product Architect | Full Stack Developer</strong>
+</p>
+
+<p align="center">
+  <a href="https://ryanwez.vercel.app">
+    <img src="https://img.shields.io/badge/🌐_Live_Demo-ryanwez.vercel.app-3178c6?style=for-the-badge" alt="Live Demo">
+  </a>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Next.js-16.1-black?style=flat-square&logo=next.js" alt="Next.js">
+  <img src="https://img.shields.io/badge/React-19-61dafb?style=flat-square&logo=react" alt="React">
+  <img src="https://img.shields.io/badge/TypeScript-5-3178c6?style=flat-square&logo=typescript" alt="TypeScript">
+  <img src="https://img.shields.io/badge/TailwindCSS-4-38bdf8?style=flat-square&logo=tailwindcss" alt="TailwindCSS">
+  <img src="https://img.shields.io/badge/Framer_Motion-12-ff69b4?style=flat-square&logo=framer" alt="Framer Motion">
+</p>
+
+<p align="center">
+  <a href="https://t.me/RyanWez"><img src="https://img.shields.io/badge/Telegram-@RyanWez-26A5E4?style=flat-square&logo=telegram" alt="Telegram"></a>
+  <a href="https://github.com/RyanWez"><img src="https://img.shields.io/badge/GitHub-RyanWez-181717?style=flat-square&logo=github" alt="GitHub"></a>
+</p>
+
+---
+
+### 📊 PageSpeed Insights
+
+<table align="center">
+  <tr>
+    <td align="center"><strong>🟢 Performance</strong></td>
+    <td align="center"><strong>🟢 Accessibility</strong></td>
+    <td align="center"><strong>🟢 Best Practices</strong></td>
+    <td align="center"><strong>🟢 SEO</strong></td>
+  </tr>
+  <tr>
+    <td align="center">96 - 99</td>
+    <td align="center">95 - 100</td>
+    <td align="center">100</td>
+    <td align="center">100</td>
+  </tr>
+</table>
+
+</div>
+
+---
+
+## ✨ Features
+
+- 🎨 **Modern Dark UI** - Glassmorphism, gradient mesh blobs, and smooth animations
+- 📱 **Fully Responsive** - Optimized for all screen sizes (375px - 4K)
+- ⚡ **High Performance** - 96+ PageSpeed score with lazy loading and image optimization
+- 🔍 **SEO Optimized** - JSON-LD structured data, Open Graph, Twitter Cards, Sitemap
+- ♿ **Accessible** - WCAG compliant with reduced motion support
+- 🚀 **Next.js 16** - App Router with static site generation
+
+---
+
+## 🛠️ Tech Stack
+
+| Category | Technologies |
+|----------|--------------|
+| **Framework** | Next.js 16.1 (App Router) |
+| **Frontend** | React 19, TypeScript 5 |
+| **Styling** | TailwindCSS 4, CSS Variables |
+| **Animations** | Framer Motion 12 |
+| **Icons** | Lucide React, React Icons |
+| **Deployment** | Vercel |
+
+---
+
+## 🚀 Quick Start
 
 ```bash
+# Clone the repository
+git clone https://github.com/RyanWez/rw-portfolio.git
+
+# Navigate to directory
+cd rw-portfolio
+
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Build for production
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the portfolio.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📁 Project Structure
 
-## Learn More
+```
+rw-portfolio/
+├── app/
+│   ├── layout.tsx      # Root layout with SEO metadata
+│   ├── page.tsx        # Home page with lazy-loaded sections
+│   ├── sitemap.ts      # Dynamic sitemap generation
+│   ├── robots.ts       # Robots.txt configuration
+│   └── globals.css     # Global styles & utilities
+├── components/
+│   ├── hero.tsx        # Hero section with animations
+│   ├── navigation.tsx  # Floating pill navigation
+│   ├── projects-carousel.tsx  # Bento grid projects
+│   ├── philosophy.tsx  # Philosophy cards
+│   ├── contact.tsx     # Contact section
+│   └── ui/             # Reusable UI components
+└── public/
+    └── images/         # Static images
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📄 License
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+MIT © [RyanWez](https://github.com/RyanWez)
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+<div align="center">
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Built with ❤️ and AI**
+
+</div>
