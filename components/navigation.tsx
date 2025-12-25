@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Home, User, Briefcase, Lightbulb, Mail } from "lucide-react";
 import { useEffect, useState, useCallback, useMemo } from "react";
 
@@ -92,10 +92,24 @@ export function Navigation() {
                                 }}
                             />
                         )}
-                        <item.icon className="w-4 h-4 relative z-10" />
-                        <span className="text-sm font-medium hidden sm:inline relative z-10">
-                            {item.label}
-                        </span>
+                        <item.icon className="w-4 h-4 relative z-10 flex-shrink-0" />
+                        <AnimatePresence mode="wait">
+                            {isActive && (
+                                <motion.span
+                                    key={item.label}
+                                    initial={{ width: 0, opacity: 0 }}
+                                    animate={{ width: "auto", opacity: 1 }}
+                                    exit={{ width: 0, opacity: 0 }}
+                                    transition={{
+                                        duration: 0.2,
+                                        ease: "easeInOut",
+                                    }}
+                                    className="text-sm font-medium relative z-10 overflow-hidden whitespace-nowrap"
+                                >
+                                    {item.label}
+                                </motion.span>
+                            )}
+                        </AnimatePresence>
                     </a>
                 );
             }),
