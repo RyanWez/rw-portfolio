@@ -4,6 +4,62 @@ import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Circle, ArrowDown } from "lucide-react";
 
+// Blur Text Animation Component - Optimized
+function BlurText({ text, delay = 0 }: { text: string; delay?: number }) {
+    const words = text.split(" ");
+
+    const container = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.06,
+                delayChildren: delay,
+            },
+        },
+    };
+
+    const child = {
+        visible: {
+            opacity: 1,
+            filter: "blur(0px)",
+            y: 0,
+            scale: 1,
+            transition: {
+                type: "spring" as const,
+                damping: 20,
+                stiffness: 150,
+                mass: 0.8,
+            },
+        },
+        hidden: {
+            opacity: 0,
+            filter: "blur(12px)",
+            y: 8,
+            scale: 0.95,
+        },
+    };
+
+    return (
+        <motion.span
+            className="flex flex-wrap justify-center gap-x-[0.3em] gap-y-1"
+            variants={container}
+            initial="hidden"
+            animate="visible"
+        >
+            {words.map((word, index) => (
+                <motion.span
+                    key={index}
+                    variants={child}
+                    className="inline-block will-change-transform"
+                >
+                    {word}
+                </motion.span>
+            ))}
+        </motion.span>
+    );
+}
+
 export function Hero() {
     return (
         <section id="home" className="min-h-screen flex flex-col justify-center px-6 md:px-12 lg:px-24 pt-24 pb-12 relative overflow-hidden">
@@ -80,17 +136,13 @@ export function Hero() {
                     <span className="text-white">Architect</span>
                 </motion.h1>
 
-                {/* Subtitle - Centered */}
-                <motion.p
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.3 }}
-                    className="text-lg md:text-xl text-white/60 max-w-2xl mx-auto mb-10 leading-relaxed"
-                >
-                    I architect intelligent software solutions using AI-driven workflows,
-                    <br className="hidden md:block" />
-                    transforming complex problems into scalable products.
-                </motion.p>
+                {/* Subtitle - Centered with Blur Animation */}
+                <div className="text-lg md:text-xl text-white/60 max-w-2xl mx-auto mb-10 leading-relaxed">
+                    <BlurText
+                        text="I architect intelligent software solutions using AI-driven workflows, transforming complex problems into scalable products."
+                        delay={1.2}
+                    />
+                </div>
 
                 {/* CTA - Centered */}
                 <motion.div
