@@ -20,26 +20,42 @@ export const metadata: Metadata = {
   // Base URL for metadata
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://ryanwez.vercel.app'),
 
-  // Basic SEO
+  // Basic SEO - Optimized for "Ryan Wez" and "RyanWez" searches
   title: {
-    default: "RyanWez | AI Product Architect",
-    template: "%s | RyanWez Portfolio",
+    default: "Ryan Wez (RyanWez) | AI Product Architect & Full Stack Developer",
+    template: "%s | Ryan Wez Portfolio",
   },
-  description: "I architect intelligent software solutions using AI-driven workflows. Building enterprise systems, automation tools, and intelligent applications. Available for freelance projects.",
+  description: "Ryan Wez (RyanWez) - AI Product Architect building intelligent software solutions. Specializing in Next.js, Flutter, enterprise systems, and AI-driven automation. Available for freelance projects in Myanmar and worldwide.",
   keywords: [
+    // Primary name variations (most important for search)
+    "Ryan Wez",
+    "RyanWez",
+    "Ryan Wez Portfolio",
+    "RyanWez Portfolio",
+    "Ryan Wez Developer",
+    "RyanWez Developer",
+    // Professional titles
     "AI Product Architect",
-    "Software Developer",
     "Full Stack Developer",
+    "Software Developer",
+    "Software Engineer",
+    // Technologies
     "Next.js Developer",
     "Flutter Developer",
+    "React Developer",
+    "TypeScript Developer",
+    // Specializations
     "Enterprise Systems",
-    "Automation",
+    "AI Automation",
+    "Web Development",
+    // Location
     "Myanmar Developer",
-    "RyanWez",
+    "Myanmar Software Engineer",
+    "Freelance Developer Myanmar",
   ],
-  authors: [{ name: "RyanWez", url: "https://github.com/RyanWez" }],
-  creator: "RyanWez",
-  publisher: "RyanWez",
+  authors: [{ name: "Ryan Wez", url: "https://github.com/RyanWez" }],
+  creator: "Ryan Wez",
+  publisher: "Ryan Wez",
 
   // Favicon & Icons
   icons: {
@@ -50,17 +66,17 @@ export const metadata: Metadata = {
 
   // Open Graph (Facebook, LinkedIn, etc.)
   openGraph: {
-    title: "RyanWez | AI Product Architect",
-    description: "I architect intelligent software solutions using AI-driven workflows. Building enterprise systems, automation tools, and intelligent applications.",
+    title: "Ryan Wez (RyanWez) | AI Product Architect & Developer",
+    description: "Ryan Wez - AI Product Architect building intelligent software solutions using AI-driven workflows. Enterprise systems, automation tools, and intelligent applications.",
     type: "website",
     locale: "en_US",
-    siteName: "RyanWez Portfolio",
+    siteName: "Ryan Wez Portfolio",
     images: [
       {
         url: "/images/rw.png",
         width: 512,
         height: 512,
-        alt: "RyanWez - AI Product Architect",
+        alt: "Ryan Wez (RyanWez) - AI Product Architect",
       },
     ],
   },
@@ -68,9 +84,10 @@ export const metadata: Metadata = {
   // Twitter Card
   twitter: {
     card: "summary_large_image",
-    title: "RyanWez | AI Product Architect",
-    description: "I architect intelligent software solutions using AI-driven workflows.",
+    title: "Ryan Wez (RyanWez) | AI Product Architect",
+    description: "Ryan Wez - AI Product Architect building intelligent software solutions. Next.js, Flutter, AI Automation.",
     images: ["/images/rw.png"],
+    creator: "@RyanWez",
   },
 
   // Robots & Crawling
@@ -85,6 +102,14 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+
+  // Additional SEO
+  alternates: {
+    canonical: "https://ryanwez.vercel.app",
+  },
+  verification: {
+    google: "google5d8046a72cb4af9d",
+  },
 };
 
 export default function RootLayout({
@@ -92,15 +117,18 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // JSON-LD Structured Data for SEO
+  // JSON-LD Structured Data for SEO - Enhanced for "Ryan Wez" recognition
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",
-    name: "RyanWez",
+    name: "Ryan Wez",
+    alternateName: ["RyanWez", "Ryan Wez Developer"],
+    givenName: "Ryan",
+    familyName: "Wez",
     jobTitle: "AI Product Architect",
-    description: "I architect intelligent software solutions using AI-driven workflows.",
+    description: "Ryan Wez (RyanWez) - AI Product Architect building intelligent software solutions using AI-driven workflows. Specializing in Next.js, Flutter, and enterprise systems.",
     url: "https://ryanwez.vercel.app",
-    image: "/images/rw.png",
+    image: "https://ryanwez.vercel.app/images/rw.png",
     sameAs: [
       "https://github.com/RyanWez",
       "https://t.me/RyanWez",
@@ -109,9 +137,21 @@ export default function RootLayout({
       "Artificial Intelligence",
       "Software Architecture",
       "Next.js",
+      "React",
       "Flutter",
+      "TypeScript",
       "Enterprise Systems",
+      "AI Automation",
+      "Full Stack Development",
     ],
+    worksFor: {
+      "@type": "Organization",
+      name: "Freelance",
+    },
+    nationality: {
+      "@type": "Country",
+      name: "Myanmar",
+    },
   };
 
   return (
