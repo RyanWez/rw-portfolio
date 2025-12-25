@@ -13,10 +13,14 @@ import {
     SiGit,
     SiFigma,
     SiOpenai,
+    SiFlutter,
+    SiDart,
 } from "react-icons/si";
 import { Sparkles } from "lucide-react";
 
 const techStack = [
+    { icon: SiFlutter, name: "Flutter", color: "text-cyan-400" },
+    { icon: SiDart, name: "Dart", color: "text-blue-400" },
     { icon: SiNextdotjs, name: "Next.js", color: "text-white" },
     { icon: SiVercel, name: "Vercel", color: "text-white" },
     { icon: SiTypescript, name: "TypeScript", color: "text-blue-400" },
@@ -51,11 +55,11 @@ export function StackMarquee() {
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
-                    className="relative overflow-hidden rounded-2xl border border-white/5 bg-white/[0.01]"
+                    className="relative overflow-hidden"
                 >
-                    {/* Gradient overlays */}
-                    <div className="absolute left-0 top-0 bottom-0 w-16 md:w-24 bg-gradient-to-r from-[#0a0a0a] to-transparent z-10 pointer-events-none" />
-                    <div className="absolute right-0 top-0 bottom-0 w-16 md:w-24 bg-gradient-to-l from-[#0a0a0a] to-transparent z-10 pointer-events-none" />
+                    {/* Enhanced fade-to-dark gradient overlays */}
+                    <div className="absolute left-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-r from-[#0a0a0a] via-[#0a0a0a]/80 to-transparent z-10 pointer-events-none" />
+                    <div className="absolute right-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-l from-[#0a0a0a] via-[#0a0a0a]/80 to-transparent z-10 pointer-events-none" />
 
                     {/* Marquee Container - uses flex with 2 identical groups */}
                     <div className="flex py-6 group">
