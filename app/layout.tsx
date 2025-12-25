@@ -85,11 +85,6 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-
-  // Google Search Console Verification (from env variable)
-  verification: {
-    google: process.env.GOOGLE_SITE_VERIFICATION,
-  },
 };
 
 export default function RootLayout({
