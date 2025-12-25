@@ -7,6 +7,10 @@ const StackMarquee = dynamic(() => import("@/components/stack-marquee").then(mod
   ssr: true,
 });
 
+const About = dynamic(() => import("@/components/about").then(mod => ({ default: mod.About })), {
+  ssr: true,
+});
+
 const ProjectsCarousel = dynamic(() => import("@/components/projects-carousel").then(mod => ({ default: mod.ProjectsCarousel })), {
   ssr: true,
 });
@@ -30,6 +34,7 @@ export default function Home() {
       <main>
         <Hero />
         <StackMarquee />
+        <About />
         <ProjectsCarousel />
         <Philosophy />
         <Contact />
