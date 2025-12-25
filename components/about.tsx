@@ -27,7 +27,7 @@ export function About() {
     };
 
     return (
-        <section id="about" className="py-12 md:py-24 px-4 sm:px-6 md:px-12 lg:px-24 relative overflow-hidden">
+        <section id="about" className="min-h-screen flex flex-col justify-center py-12 md:py-24 px-4 sm:px-6 md:px-12 lg:px-24 relative overflow-hidden">
             {/* Background gradient blobs - Hidden on mobile for performance */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden z-0 hidden sm:block">
                 <div
@@ -123,14 +123,14 @@ export function About() {
                             >
                                 {/* Gradient accent - simplified */}
                                 <div className={`absolute top-0 right-0 w-12 sm:w-16 md:w-20 h-12 sm:h-16 md:h-20 ${stat.color === 'cyan' ? 'bg-cyan-500/15' :
-                                        stat.color === 'purple' ? 'bg-purple-500/15' :
-                                            'bg-emerald-500/15'
+                                    stat.color === 'purple' ? 'bg-purple-500/15' :
+                                        'bg-emerald-500/15'
                                     } rounded-bl-full blur-sm pointer-events-none`} />
 
                                 <div className="relative z-10">
                                     <span className={`text-xl sm:text-2xl md:text-3xl font-bold ${stat.color === 'cyan' ? 'text-cyan-400' :
-                                            stat.color === 'purple' ? 'text-purple-400' :
-                                                'text-emerald-400'
+                                        stat.color === 'purple' ? 'text-purple-400' :
+                                            'text-emerald-400'
                                         }`}>
                                         {stat.value}
                                     </span>

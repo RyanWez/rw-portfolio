@@ -2,11 +2,12 @@
 
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
-import { Home, Briefcase, Lightbulb, Mail } from "lucide-react";
+import { Home, User, Briefcase, Lightbulb, Mail } from "lucide-react";
 import { useEffect, useState, useCallback, useMemo } from "react";
 
 const navItems = [
     { icon: Home, label: "Home", href: "#home" },
+    { icon: User, label: "About", href: "#about" },
     { icon: Briefcase, label: "Work", href: "#work" },
     { icon: Lightbulb, label: "Philosophy", href: "#philosophy" },
     { icon: Mail, label: "Contact", href: "#contact" },
@@ -40,7 +41,7 @@ export function Navigation() {
             return;
         }
 
-        const sections = ["home", "work", "philosophy", "contact"];
+        const sections = ["home", "about", "work", "philosophy", "contact"];
         let currentSection = "home";
 
         for (const section of sections) {
