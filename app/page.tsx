@@ -1,7 +1,6 @@
 import dynamic from "next/dynamic";
 import { Navigation } from "@/components/navigation";
 import { Hero } from "@/components/hero";
-import { LoadingScreen } from "@/components/loading-screen";
 
 // Lazy load below-the-fold components for better initial performance
 const StackMarquee = dynamic(() => import("@/components/stack-marquee").then(mod => ({ default: mod.StackMarquee })), {
@@ -27,7 +26,6 @@ const Footer = dynamic(() => import("@/components/footer").then(mod => ({ defaul
 export default function Home() {
   return (
     <>
-      <LoadingScreen />
       <Navigation />
       <main>
         <Hero />
