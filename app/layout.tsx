@@ -86,10 +86,10 @@ export const metadata: Metadata = {
     },
   },
 
-  // Verification (add your own IDs when available)
-  // verification: {
-  //   google: "your-google-verification-code",
-  // },
+  // Google Search Console Verification (from env variable)
+  verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION,
+  },
 };
 
 export default function RootLayout({
