@@ -18,7 +18,7 @@ export function Contact() {
     }, []);
 
     return (
-        <section id="contact" className="py-32 px-6 md:px-12 lg:px-24 relative overflow-hidden">
+        <section id="contact" className="py-20 md:py-32 px-4 sm:px-6 md:px-12 lg:px-24 relative overflow-hidden">
             {/* Decorative gradient orbs */}
             <div className="absolute top-1/4 -left-32 w-64 h-64 bg-purple-500/20 rounded-full blur-[120px] pointer-events-none" />
             <div className="absolute bottom-1/4 -right-32 w-64 h-64 bg-cyan-500/20 rounded-full blur-[120px] pointer-events-none" />
@@ -30,27 +30,27 @@ export function Contact() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.7 }}
-                    className="relative p-[1px] rounded-3xl bg-gradient-to-br from-white/20 via-white/5 to-white/10 overflow-hidden"
+                    className="relative p-[1px] rounded-2xl md:rounded-3xl bg-gradient-to-br from-white/20 via-white/5 to-white/10 overflow-hidden"
                 >
                     {/* Animated gradient border effect */}
                     <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 via-purple-500/20 to-cyan-500/20 animate-pulse opacity-50" />
 
                     {/* Inner content */}
-                    <div className="relative rounded-3xl bg-[#0a0a0a]/90 backdrop-blur-xl p-10 md:p-14">
+                    <div className="relative rounded-2xl md:rounded-3xl bg-[#0a0a0a]/90 backdrop-blur-xl p-6 sm:p-8 md:p-14">
                         {/* Header */}
-                        <div className="text-center mb-10">
+                        <div className="text-center mb-8 md:mb-10">
                             <motion.div
                                 initial={{ opacity: 0, scale: 0.9 }}
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.5, delay: 0.2 }}
-                                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-white/60 text-sm mb-6"
+                                className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white/5 border border-white/10 text-white/60 text-xs sm:text-sm mb-4 sm:mb-6"
                             >
-                                <Sparkles className="w-4 h-4 text-cyan-400" />
+                                <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-cyan-400" />
                                 Let&apos;s create something amazing
                             </motion.div>
 
-                            <h2 className="text-3xl md:text-5xl font-bold mb-4">
+                            <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-3 sm:mb-4">
                                 Ready to{" "}
                                 <span className="inline-block relative">
                                     <AnimatePresence mode="wait">
@@ -68,13 +68,13 @@ export function Contact() {
                                 </span>
                                 ?
                             </h2>
-                            <p className="text-white/50 max-w-md mx-auto">
+                            <p className="text-white/50 max-w-md mx-auto text-sm sm:text-base">
                                 I&apos;m always excited to work on innovative projects and bring ideas to life.
                             </p>
                         </div>
 
                         {/* Social Cards */}
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-6 md:mb-8">
                             {/* Telegram Card */}
                             <motion.a
                                 href="https://t.me/RyanWez"

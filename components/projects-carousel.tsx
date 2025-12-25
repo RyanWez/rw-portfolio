@@ -164,7 +164,7 @@ function ProjectCard({
 
 export function ProjectsCarousel() {
     return (
-        <section id="work" className="py-24 px-6 md:px-12 lg:px-24 relative">
+        <section id="work" className="py-16 md:py-24 px-4 sm:px-6 md:px-12 lg:px-24 relative">
             {/* Gradient Mesh Blobs */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
                 <motion.div
@@ -195,26 +195,25 @@ export function ProjectsCarousel() {
             </div>
 
             <div className="max-w-6xl mx-auto relative z-10">
-                {/* Section Header */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
-                    className="mb-12"
+                    className="mb-8 md:mb-12"
                 >
-                    <h2 className="text-3xl md:text-4xl font-bold mb-2">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2">
                         Featured <span className="text-gradient-cyan">Work</span>
                     </h2>
-                    <p className="text-white/60">
+                    <p className="text-white/60 text-sm sm:text-base">
                         Products and systems I&apos;ve architected from concept to production.
                     </p>
                 </motion.div>
 
                 {/* Bento Grid Layout */}
-                <div className="space-y-6">
+                <div className="space-y-4 md:space-y-6">
                     {/* Row 1: EMS (Desktop) + Ahkyaway Mhat (Mobile) - Both Production */}
-                    <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6">
                         <div className="md:col-span-3">
                             <ProjectCard project={projects.ems} variant="desktop" delay={0.1} />
                         </div>
@@ -224,7 +223,7 @@ export function ProjectsCarousel() {
                     </div>
 
                     {/* Row 2: Stock Mhat (Mobile) + Sayar Kaung (Desktop) */}
-                    <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6">
                         <div className="md:col-span-1 order-2 md:order-1">
                             <ProjectCard project={projects.stockMhat} variant="mobile" delay={0.3} />
                         </div>

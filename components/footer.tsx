@@ -8,23 +8,23 @@ export function Footer() {
     const currentYear = new Date().getFullYear();
 
     return (
-        <footer className="py-8 px-6 border-t border-white/5">
+        <footer className="py-6 md:py-8 px-4 sm:px-6 border-t border-white/5">
             <div className="max-w-5xl mx-auto">
                 <motion.div
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
-                    className="flex flex-col md:flex-row items-center justify-between gap-4"
+                    className="flex flex-col items-center justify-center gap-4 text-center md:flex-row md:justify-between md:text-left"
                 >
                     {/* Copyright */}
-                    <p className="text-white/40 text-sm flex items-center gap-1">
+                    <p className="text-white/40 text-xs sm:text-sm flex items-center gap-1 order-2 md:order-1">
                         © {currentYear} RyanWez. Built with{" "}
                         <Heart className="w-3 h-3 text-red-500 fill-red-500" /> and AI.
                     </p>
 
                     {/* Social Links */}
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-4 order-1 md:order-2">
                         <a
                             href="https://t.me/RyanWez"
                             target="_blank"
@@ -46,7 +46,7 @@ export function Footer() {
                     </div>
 
                     {/* Status */}
-                    <p className="text-white/30 text-xs">
+                    <p className="text-white/30 text-xs order-3">
                         Designed & Developed by RyanWez
                     </p>
                 </motion.div>

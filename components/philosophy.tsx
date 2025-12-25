@@ -68,7 +68,7 @@ const glowMap: Record<string, string> = {
 
 export function Philosophy() {
     return (
-        <section id="philosophy" className="py-24 px-6 md:px-12 lg:px-24">
+        <section id="philosophy" className="py-16 md:py-24 px-4 sm:px-6 md:px-12 lg:px-24">
             <div className="max-w-6xl mx-auto">
                 {/* Section Header */}
                 <motion.div
@@ -76,18 +76,18 @@ export function Philosophy() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
-                    className="mb-12"
+                    className="mb-8 md:mb-12"
                 >
-                    <h2 className="text-3xl md:text-4xl font-bold mb-2">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2">
                         My <span className="text-gradient-purple">Philosophy</span>
                     </h2>
-                    <p className="text-white/50">
+                    <p className="text-white/50 text-sm sm:text-base">
                         The principles that guide how I build software.
                     </p>
                 </motion.div>
 
                 {/* Philosophy Grid - 2 rows of 3 */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
                     {philosophyItems.map((item, index) => (
                         <motion.div
                             key={item.number}

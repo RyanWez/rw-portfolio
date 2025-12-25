@@ -75,7 +75,7 @@ export function Navigation() {
                         key={item.label}
                         href={item.href}
                         className={cn(
-                            "relative flex items-center gap-2 px-4 py-2.5 rounded-full transition-colors duration-200",
+                            "relative flex items-center gap-1.5 px-3 py-2 sm:px-4 sm:py-2.5 rounded-full transition-colors duration-200",
                             isActive ? "text-black" : "text-white/50 hover:text-white/80"
                         )}
                     >

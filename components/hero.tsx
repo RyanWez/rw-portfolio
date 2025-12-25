@@ -62,7 +62,7 @@ function BlurText({ text, delay = 0 }: { text: string; delay?: number }) {
 
 export function Hero() {
     return (
-        <section id="home" className="min-h-screen flex flex-col justify-center px-6 md:px-12 lg:px-24 pt-24 pb-12 relative overflow-hidden">
+        <section id="home" className="min-h-screen flex flex-col justify-center px-4 sm:px-6 md:px-12 lg:px-24 pt-24 pb-12 relative overflow-hidden">
             {/* Gradient Mesh Blobs - 2025 Style */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
                 {/* Cyan blob - top right */}
@@ -127,7 +127,7 @@ export function Hero() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.2 }}
-                    className="text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.05] tracking-tight mb-6"
+                    className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.05] tracking-tight mb-6"
                 >
                     <span className="bg-gradient-to-r from-emerald-400 via-cyan-400 to-purple-400 bg-clip-text text-transparent">
                         AI Product
@@ -137,7 +137,7 @@ export function Hero() {
                 </motion.h1>
 
                 {/* Subtitle - Centered with Blur Animation */}
-                <div className="text-lg md:text-xl text-white/60 max-w-2xl mx-auto mb-10 leading-relaxed">
+                <div className="text-base sm:text-lg md:text-xl text-white/60 max-w-2xl mx-auto mb-10 leading-relaxed px-2">
                     <BlurText
                         text="I architect intelligent software solutions using AI-driven workflows, transforming complex problems into scalable products."
                         delay={1.2}
@@ -149,7 +149,7 @@ export function Hero() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.4 }}
-                    className="flex flex-wrap justify-center gap-4"
+                    className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 w-full px-4 sm:px-0"
                 >
                     <a
                         href="#work"
