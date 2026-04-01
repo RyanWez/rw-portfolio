@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   // Base URL for metadata
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://ryanwez.vercel.app'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://ryanwez.com'),
 
   // Basic SEO - Optimized for "Ryan Wez" and "RyanWez" searches
   title: {
@@ -105,10 +105,7 @@ export const metadata: Metadata = {
 
   // Additional SEO
   alternates: {
-    canonical: "https://ryanwez.vercel.app",
-  },
-  verification: {
-    google: "google5d8046a72cb4af9d",
+    canonical: "https://ryanwez.com",
   },
 };
 
@@ -127,8 +124,8 @@ export default function RootLayout({
     familyName: "Wez",
     jobTitle: "AI Product Architect",
     description: "Ryan Wez (RyanWez) - AI Product Architect building intelligent software solutions using AI-driven workflows. Specializing in Next.js, Flutter, and enterprise systems.",
-    url: "https://ryanwez.vercel.app",
-    image: "https://ryanwez.vercel.app/images/rw.png",
+    url: "https://ryanwez.com",
+    image: "https://ryanwez.com/images/rw.png",
     sameAs: [
       "https://github.com/RyanWez",
       "https://t.me/RyanWez",
