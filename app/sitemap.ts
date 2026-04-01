@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
     // Update this with your actual domain when deployed
-    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://ryanwez.vercel.app'
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://ryanwez.com'
 
     return [
         {

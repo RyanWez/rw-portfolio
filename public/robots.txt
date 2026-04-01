@@ -5,7 +5,7 @@ User-agent: *
 Allow: /
 
 # Sitemap location (update with your actual domain)
-Sitemap: https://ryanwez.vercel.app/sitemap.xml
+Sitemap: https://ryanwez.com/sitemap.xml
 
 # Disallow admin or private paths (add if needed)
 Disallow: /api/
