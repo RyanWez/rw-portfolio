@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
-import { Circle, ArrowDown } from "lucide-react";
+import { Circle } from "lucide-react";
 
 // Blur Text Animation Component - Optimized
 function BlurText({ text, delay = 0 }: { text: string; delay?: number }) {

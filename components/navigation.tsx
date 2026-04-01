@@ -61,9 +61,12 @@ export function Navigation() {
         const throttledScroll = throttle(detectActiveSection, 100);
 
         window.addEventListener("scroll", throttledScroll, { passive: true });
-        detectActiveSection();
+        const rafId = requestAnimationFrame(detectActiveSection);
 
-        return () => window.removeEventListener("scroll", throttledScroll);
+        return () => {
+            window.removeEventListener("scroll", throttledScroll);
+            cancelAnimationFrame(rafId);
+        };
     }, [throttle, detectActiveSection]);
 
     // Memoized nav items to prevent re-renders
