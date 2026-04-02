@@ -28,16 +28,16 @@ function SpotlightCard({ children, className, spotlightColor = "rgba(255, 255, 2
         <div
             onMouseMove={onMouseMove}
             className={cn(
-                "group relative border border-white/[0.06] bg-white/[0.01] rounded-3xl overflow-hidden transition-all duration-500",
+                "group relative border border-white/[0.04] bg-white/[0.01] rounded-2xl overflow-hidden transition-all duration-500",
                 className
             )}
         >
             <motion.div
-                className="pointer-events-none absolute -inset-px rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                className="pointer-events-none absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                 style={{
                     background: useTransform(
                         [mouseX, mouseY],
-                        ([x, y]) => `radial-gradient(400px circle at ${x}px ${y}px, ${spotlightColor}, transparent 80%)`
+                        ([x, y]) => `radial-gradient(350px circle at ${x}px ${y}px, ${spotlightColor}, transparent 80%)`
                     ),
                 }}
             />
@@ -57,140 +57,115 @@ export function Contact() {
     }, []);
 
     return (
-        <section id="contact" className="py-24 md:py-44 px-4 sm:px-6 md:px-12 lg:px-24 relative overflow-hidden bg-[#030303]">
-            {/* 2026 Trend: Grid Mesh Background */}
-            <div className="absolute inset-0 z-0 opactiy-30" 
+        <section id="contact" className="py-16 md:py-28 px-4 sm:px-6 md:px-12 lg:px-24 relative overflow-hidden bg-[#020202]">
+            {/* 2026 Trend: Grid Mesh Background - More Subtle */}
+            <div className="absolute inset-0 z-0 opacity-[0.2]" 
                  style={{ 
-                    backgroundImage: `linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px)`,
-                    backgroundSize: '40px 40px',
-                    maskImage: 'radial-gradient(circle at center, black, transparent 80%)'
+                    backgroundImage: `linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px)`,
+                    backgroundSize: '48px 48px',
+                    maskImage: 'radial-gradient(circle at center, black, transparent 75%)'
                  }} 
             />
 
-            {/* Noise Texture Overlay for tactile feel */}
-            <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none" 
-                 style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3%3Cfilter id='noiseFilter'%3%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3%3C/filter%3%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3%3C/svg%3")` }} 
+            {/* Noise Texture */}
+            <div className="absolute inset-0 z-0 opacity-[0.02] pointer-events-none" 
+                 style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3%3Cfilter id='noiseFilter'%3%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3%3C/filter%3%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3%3C/svg%3")` }} 
             />
 
-            {/* Scanning Light Beams */}
-            <motion.div 
-                animate={{ top: ['-20%', '120%'] }}
-                transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-                className="absolute left-1/4 w-px h-40 bg-gradient-to-b from-transparent via-cyan-500/20 to-transparent z-0"
-            />
-            <motion.div 
-                animate={{ top: ['120%', '-20%'] }}
-                transition={{ duration: 10, repeat: Infinity, ease: "linear", delay: 2 }}
-                className="absolute right-1/3 w-px h-60 bg-gradient-to-b from-transparent via-purple-500/20 to-transparent z-0"
-            />
-
-            <div className="max-w-4xl mx-auto relative z-10">
+            <div className="max-w-3xl mx-auto relative z-10">
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 15 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 1, ease: [0.19, 1, 0.22, 1] }}
-                    className="relative"
+                    transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
                 >
-                    {/* Main Container with Iridescent Animated Border */}
-                    <div className="relative group p-[1px] rounded-[2.5rem] overflow-hidden">
-                        {/* Iridescent Border Animation */}
-                        <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 via-purple-500/10 to-cyan-500/10 opacity-50 group-hover:opacity-100 transition-opacity duration-1000" />
+                    {/* Compact Architectural Container */}
+                    <div className="relative group p-[1px] rounded-[2rem] overflow-hidden">
+                        <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 via-purple-500/10 to-cyan-500/10 opacity-30" />
                         <motion.div 
                             animate={{ rotate: 360 }}
-                            transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-                            className="absolute -inset-[100%] bg-[conic-gradient(from_0deg,transparent_0deg,transparent_150deg,rgba(0,245,255,0.1)_180deg,transparent_210deg,transparent_360deg)] opacity-30"
+                            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                            className="absolute -inset-[100%] bg-[conic-gradient(from_0deg,transparent_0deg,transparent_160deg,rgba(0,245,255,0.08)_180deg,transparent_200deg,transparent_360deg)] opacity-40 blur-sm"
                         />
 
-                        <div className="relative rounded-[2.5rem] bg-[#080808]/80 backdrop-blur-3xl p-8 sm:p-12 md:p-24 border border-white/[0.05] shadow-2xl">
-                            {/* Content Header */}
-                            <div className="text-center mb-16">
+                        <div className="relative rounded-[2rem] bg-[#050505]/90 backdrop-blur-3xl p-8 md:p-16 border border-white/[0.05] shadow-xl">
+                            {/* Header Section */}
+                            <div className="text-center mb-10 md:mb-12">
                                 <motion.div
                                     initial={{ opacity: 0, scale: 0.95 }}
                                     whileInView={{ opacity: 1, scale: 1 }}
                                     viewport={{ once: true }}
-                                    className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/[0.02] border border-white/[0.05] text-white/40 text-[10px] sm:text-xs tracking-[0.2em] uppercase font-bold mb-10"
+                                    className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.01] border border-white/[0.04] text-white/30 text-[9px] sm:text-[10px] tracking-[0.25em] uppercase font-bold mb-8"
                                 >
-                                    <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
-                                    The Future is Collaborative
+                                    <Sparkles className="w-3 h-3 text-cyan-400" />
+                                    The Next Chapter
                                 </motion.div>
 
-                                <h2 className="text-4xl sm:text-5xl md:text-7xl font-light mb-8 tracking-tighter leading-[0.9]">
-                                    Ready to <br/>
-                                    <span className="inline-block relative font-bold italic mt-2">
+                                <h2 className="text-3xl sm:text-4xl md:text-5xl font-light mb-6 tracking-tight leading-[1.1] text-white/90">
+                                    Ready to <br className="sm:hidden"/> 
+                                    <span className="inline-block relative font-bold italic w-full sm:w-auto px-2">
                                         <AnimatePresence mode="wait">
                                             <motion.span
                                                 key={rotatingWords[currentIndex]}
-                                                initial={{ x: 10, opacity: 0 }}
+                                                initial={{ x: 5, opacity: 0 }}
                                                 animate={{ x: 0, opacity: 1 }}
-                                                exit={{ x: -10, opacity: 0 }}
-                                                transition={{ duration: 0.7, ease: [0.19, 1, 0.22, 1] }}
-                                                className="text-gradient-purple inline-block"
+                                                exit={{ x: -5, opacity: 0 }}
+                                                transition={{ duration: 0.5, ease: "easeOut" }}
+                                                className="text-gradient-purple inline-block min-w-[3ch]"
                                             >
                                                 {rotatingWords[currentIndex]}
                                             </motion.span>
                                         </AnimatePresence>
-                                        <div className="absolute -bottom-2 left-0 w-full h-px bg-gradient-to-r from-transparent via-purple-500/40 to-transparent" />
+                                        <div className="absolute -bottom-1 left-0 w-full h-px bg-gradient-to-r from-transparent via-purple-500/30 to-transparent" />
                                     </span>
+                                    ?
                                 </h2>
-                                <p className="text-white/30 max-w-md mx-auto text-base sm:text-lg font-light tracking-tight leading-relaxed">
+                                <p className="text-white/30 max-w-lg mx-auto text-sm sm:text-base leading-relaxed tracking-tight px-4 text-balance">
                                     Blending technical precision with creative vision to build the next generation of digital experiences.
                                 </p>
                             </div>
 
-                            {/* Minimalist Cards */}
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-12">
-                                {/* Telegram Card */}
-                                <SpotlightCard spotlightColor="rgba(38, 165, 228, 0.1)">
-                                    <a href="https://t.me/RyanWez" target="_blank" rel="noopener noreferrer" className="block p-8 group/link">
-                                        <div className="flex flex-col gap-6">
-                                            <div className="flex items-center justify-between">
-                                                <div className="w-12 h-12 rounded-2xl bg-white/[0.02] border border-white/5 flex items-center justify-center group-hover/link:bg-[#26A5E4]/10 group-hover/link:border-[#26A5E4]/20 transition-all duration-300">
-                                                    <SiTelegram className="w-6 h-6 text-[#26A5E4]" />
-                                                </div>
-                                                <ArrowUpRight className="w-5 h-5 text-white/10 group-hover/link:text-white group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-all" />
-                                            </div>
-                                            <div>
-                                                <h3 className="text-lg font-medium text-white mb-1 group-hover/link:text-[#26A5E4] transition-colors">Telegram</h3>
-                                                <p className="text-white/20 text-xs tracking-tight">Direct channel for project inquiries</p>
-                                            </div>
+                            {/* Refined Small Social Cards */}
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+                                <SpotlightCard spotlightColor="rgba(38, 165, 228, 0.08)">
+                                    <a href="https://t.me/RyanWez" target="_blank" rel="noopener noreferrer" className="flex items-center gap-5 p-6 group/link">
+                                        <div className="w-10 h-10 rounded-xl bg-white/[0.01] border border-white/5 flex items-center justify-center group-hover/link:bg-[#26A5E4]/10 group-hover/link:border-[#26A5E4]/20 transition-all duration-300">
+                                            <SiTelegram className="w-5 h-5 text-[#26A5E4]" />
                                         </div>
+                                        <div className="flex-1 min-w-0">
+                                            <h3 className="text-base font-medium text-white/80 group-hover/link:text-[#26A5E4] transition-colors truncate">Telegram</h3>
+                                            <p className="text-white/20 text-[11px] truncate">Project inquiries</p>
+                                        </div>
+                                        <ArrowUpRight className="w-4 h-4 text-white/5 group-hover/link:text-white transition-colors" />
                                     </a>
                                 </SpotlightCard>
 
-                                {/* GitHub Card */}
-                                <SpotlightCard spotlightColor="rgba(168, 85, 247, 0.1)">
-                                    <a href="https://github.com/RyanWez" target="_blank" rel="noopener noreferrer" className="block p-8 group/link">
-                                        <div className="flex flex-col gap-6">
-                                            <div className="flex items-center justify-between">
-                                                <div className="w-12 h-12 rounded-2xl bg-white/[0.02] border border-white/5 flex items-center justify-center group-hover/link:bg-purple-500/10 group-hover/link:border-purple-500/20 transition-all duration-300">
-                                                    <SiGithub className="w-6 h-6 text-white" />
-                                                </div>
-                                                <ArrowUpRight className="w-5 h-5 text-white/10 group-hover/link:text-white group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-all" />
-                                            </div>
-                                            <div>
-                                                <h3 className="text-lg font-medium text-white mb-1 group-hover/link:text-purple-400 transition-colors">GitHub</h3>
-                                                <p className="text-white/20 text-xs tracking-tight">Architecture, logic and open source</p>
-                                            </div>
+                                <SpotlightCard spotlightColor="rgba(168, 85, 247, 0.08)">
+                                    <a href="https://github.com/RyanWez" target="_blank" rel="noopener noreferrer" className="flex items-center gap-5 p-6 group/link">
+                                        <div className="w-10 h-10 rounded-xl bg-white/[0.01] border border-white/5 flex items-center justify-center group-hover/link:bg-purple-500/10 group-hover/link:border-purple-500/20 transition-all duration-300">
+                                            <SiGithub className="w-5 h-5 text-white" />
                                         </div>
+                                        <div className="flex-1 min-w-0">
+                                            <h3 className="text-base font-medium text-white/80 group-hover/link:text-purple-400 transition-colors truncate">GitHub</h3>
+                                            <p className="text-white/20 text-[11px] truncate">Architecture & Logic</p>
+                                        </div>
+                                        <ArrowUpRight className="w-4 h-4 text-white/5 group-hover/link:text-white transition-colors" />
                                     </a>
                                 </SpotlightCard>
                             </div>
 
-                            {/* Footer Status */}
-                            <div className="flex flex-col sm:flex-row items-center justify-between gap-6 pt-10 border-t border-white/[0.05]">
-                                <div className="flex items-center gap-3">
-                                    <div className="relative flex h-2 w-2">
+                            {/* Tight Footer */}
+                            <div className="flex items-center justify-center gap-8 pt-8 border-t border-white/[0.03]">
+                                <div className="flex items-center gap-2.5">
+                                    <div className="relative flex h-1.5 w-1.5">
                                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-                                        <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500 shadow-[0_0_8px_rgba(0,245,255,0.8)]"></span>
+                                        <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-cyan-500 shadow-[0_0_6px_rgba(0,245,255,0.7)]"></span>
                                     </div>
-                                    <span className="text-white/20 text-[10px] uppercase tracking-[0.2em] font-bold">Project Available</span>
+                                    <span className="text-white/20 text-[9px] uppercase tracking-[0.2em] font-medium">Available</span>
                                 </div>
-                                <div className="flex items-center gap-4">
-                                     <div className="flex items-center gap-2 group cursor-help">
-                                        <Clock className="w-3.5 h-3.5 text-white/20 group-hover:text-cyan-400 transition-colors" />
-                                        <span className="text-white/20 text-[10px] uppercase tracking-[0.1em] font-medium">EST. Output: 24h</span>
-                                     </div>
+                                <div className="flex items-center gap-2">
+                                    <Clock className="w-3.5 h-3.5 text-white/10" />
+                                    <span className="text-white/20 text-[9px] uppercase tracking-[0.1em] font-medium">Responds in 24h</span>
                                 </div>
                             </div>
                         </div>
